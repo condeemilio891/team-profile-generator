@@ -2,12 +2,22 @@
 const Employee=require('./Employee')
 
 class Intern extends Employee{
-    constructor(name,id,email){
-        super(name,id,email)
-    }
-    
+    constructor(name,id,email,role,school){
+       
+        super(name,id,email,role,)
+        this.school=school
     }
 
+    getschool(){
+        console.log(`School:${this.school}`)
+    }
+    }
+    
+
     module.exports=Intern
-const intern=new Intern('Thrasher','intern')
-intern.printInfo()
+const intern=new Intern('Thrasher',10,"lorem","intern",'St.Edwards')
+intern.getname()
+intern.getid()
+intern.getemail()
+intern.getrole()
+intern.getschool()
