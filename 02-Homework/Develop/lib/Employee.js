@@ -1,6 +1,6 @@
-// TODO: Write code to define and export the Employee class
+ // TODO: Write code to define and export the Employee class
 
-class Employee {
+ class Employee {
     constructor(name,id,email,role){
         this.name=name
         this.id=id
@@ -10,26 +10,30 @@ class Employee {
 
     
 
-    getname(){
+    getName(){
         console.log(`Name: ${this.name}`)
+        
+        return this.name
     }
-    getid(){
+    getId(){
         console.log(`id:${this.id}`)
+        return this.id
     }
-    getemail(){
+    getEmail(){
         console.log(`Email:${this.email}`)
-
+        return this.email
     }
-    getrole(){
+    getRole(){
         console.log(`role: ${this.role}`)
+        return "Employee"
     
 }}
 
 
 module.exports=Employee;
-const AngelaDeth=new Employee('Angela-Deth',1,"lorem@lorem.com","staff-member",)
+const AngelaDeth=new Employee('Angela-Deth',1,"lorem@lorem.com","Employee")
 
-AngelaDeth.getname()
-AngelaDeth.getid()
-AngelaDeth.getemail()
-AngelaDeth.getrole()
+AngelaDeth.getName()
+AngelaDeth.getId()
+AngelaDeth.getEmail()
+AngelaDeth.getRole()
