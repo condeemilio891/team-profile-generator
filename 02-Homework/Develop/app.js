@@ -11,13 +11,96 @@ const outputPath = path.join(OUTPUT_DIR, "team.html");
 const render = require("./lib/htmlRenderer");
 const Choices = require("inquirer/lib/objects/choices");
 const Employee = require("./lib/Employee");
+const EditorPrompt = require("inquirer/lib/prompts/editor");
 
 
 // Write code to use inquirer to gather information about the development team members,
 // and to create objects for each team member (using the correct classes as blueprints!)
 
-function employeePrompt(){
+var choiceprompt={
+    type:'list',
+    name: 'choice',
+    message:'choose a team member type',
+    choices:[Employee,Engineer,Intern,Manager]
+
+    
+}
+function main(){
+    console.log('Build A Squad')
+    Prompt()
+    
+}
+
+function Prompt(){
+    inquirer.prompt(choiceprompt).then((answers)=>{
+        var squadM=answers.choice
+
+        if(squadM==='Engineer'){
+            console.log('you have chosen engineer');
+            eprompt()}else(squadM==='Intern');{
+                console.log('You Have Chosen Intern')
+                iprompt()}elseif(squadM==='Manager');{
+                    console.log('Youhave chosen Manager')
+                    mprompt()
+                }elseif(squadM==='Employee');{
+                    console.log("you hvae chosen Employee")
+                    gprompt()
+                }
+               
+
+            })}
+
+       
+        
+        
+    
+// manager prompt()
+function mprompt(){
     return inquirer.prompt([
+        {type:'input',
+        name:'name',
+        message:"what is your name"},{
+            type:'input',
+            message:'What is your ID number?',
+            name:"id",},{
+                type:'input',
+                message:'what is your Email address?'
+                ,name:'email'
+            },{
+                type:'input',
+                message:'what it you role',
+                name:'role',
+            },{type:"input",
+                message:"Office Number?",
+                name:'officeNumber'}
+    ],)
+            };
+
+  //intern prompt 
+  function iprompt(){
+    return inquirer.prompt([
+        {type:'input',
+        name:'name',
+        message:"what is your name"},{
+            type:'input',
+            message:'What is your ID number?',
+            name:"id",},{
+                type:'input',
+                message:'what is your Email address?'
+                ,name:'email'
+            },{
+                type:'input',
+                message:'what it you role',
+                name:'role',
+            },{type:"input",
+                message:"School?",
+                name:'school'}
+    ],)
+            };
+      
+//engineer prompt
+    function eprompt(){
+        return inquirer.prompt([
             {type:'input',
             name:'name',
             message:"what is your name"},{
@@ -31,40 +114,37 @@ function employeePrompt(){
                     type:'input',
                     message:'what it you role',
                     name:'role',
-                },
+                },{type:"input",
+                    message:"Github?",
+                    name:'github'}
         ],)
                 };
 
+//general debate 
+function gprompt(){
+    return inquirer.prompt([
+        {type:'input',
+        name:'name',
+        message:"what is your name"},{
+            type:'input',
+            message:'What is your ID number?',
+            name:"id",},{
+                type:'input',
+                message:'what is your Email address?'
+                ,name:'email'
+            },{
+                type:'input',
+                message:'what it you role',
+                name:'role',
+            },
+    ],)
+            };
+
+    
+main()
 
 
-
-                inquirer
-                .prompt([
-                    {type:'input',
-                    name:'name',
-                    message:"what is your name"},{
-                        type:'input',
-                        message:'What is your ID number?',
-                        name:"id",},{
-                            type:'input',
-                            message:'what is your Email address?'
-                            ,name:'email'
-                        },{
-                            type:'input',
-                            message:'what it you role',
-                            name:'role',
-                        },
-                ],)
-                        
-                .then(() => {
-                  inquirer.prompt({
-                    type: 'list',
-                    name: 'beverage',
-                    message: 'And your favorite beverage?',
-                    choices: ['Pepsi', 'Coke', '7up', 'Mountain Dew', 'Red Bull'],
-                  });
-                });
-
+               
 
 
 // After the user has input all employees desired, call the `render` function (required
