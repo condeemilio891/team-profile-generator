@@ -2,20 +2,35 @@
 const Employee=require('./Employee');
 
 class Engineer extends Employee{
-    constructor(name,id,email,role,github){
+    constructor(name,id,email,gitHubUser){
         
-      super(name,id,email,role,)
-      this.github=github
+      super(name,id,email)
+      this.gitHubUser=gitHubUser
       
     }
-    getgithub(){
-        console.log(`Github:${this.github}`)
+    getGithub(){
+        
+        return this.gitHubUser
+    }
+    getRole(){
+      return "Engineer"
     }
 }
 module.exports=Engineer
-const HellRazor=new Engineer('Hell-Razor','3','engineer@gmail.com','engineer',"Hell-Razor.github.com")
-HellRazor.getname()
-HellRazor.getid()
-HellRazor.getemail()
-HellRazor.getrole()
-HellRazor.getgithub()
+const HellRazor=new Engineer('Hell-Razor',3,'engineer@gmail.com',"GitHUbUser")
+HellRazor.getName()
+HellRazor.getId()
+HellRazor.getEmail()
+HellRazor.getRole()
+HellRazor.getGithub()
+
+
+
+const DannyChelon=new Engineer('DannyChelon',3,'engineer@gmail.com',"GitHUbUser")
+
+
+DannyChelon.getName()
+DannyChelon.getId()
+DannyChelon.getEmail()
+DannyChelon.getRole()
+DannyChelon.getGithub()

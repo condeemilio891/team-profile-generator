@@ -2,20 +2,26 @@
 const Employee=require('./Employee')
 
 class Manager extends Employee{
-    constructor(name,id,email,role,OfficeNumber){
-        super(name,id,email,role)
-        this.OfficeNumber=OfficeNumber
+    constructor(name,id,email,officeNumber){
+        super(name,id,email)
+        this.officeNumber=officeNumber
     }
-    getofficenumber(){
-        console.log(`Office#: ${this.OfficeNumber}`)
+    getOfficeNumber(){
+        console.log(`Office#: ${this.officeNumber}`)
+        return this.officeNumber
+        
+    }
+
+    getRole(){
+        return "Manager"
     }
     }
 
     module.exports=Manager
-const SnakeVargas=new Manager('Snake Vargas',4,"lorem","manager",1)
-SnakeVargas.getname()
-SnakeVargas.getid()
+const SnakeVargas=new Manager('Snake Vargas',1,"test@test.com",100)
+SnakeVargas.getName()
+SnakeVargas.getId()
 
-SnakeVargas.getemail()
-SnakeVargas.getrole()
-SnakeVargas.getofficenumber()
+SnakeVargas.getEmail()
+SnakeVargas.getRole()
+SnakeVargas.getOfficeNumber()
