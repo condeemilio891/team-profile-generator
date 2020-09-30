@@ -38,20 +38,20 @@ function Prompt(){
         if(squadM==='Engineer',squadM!=='Intern',squadM!=="Employee",squadM!=='Manager'){
             console.log('you have chosen engineer');
             eprompt()}
-        else{if(squadM!=='Engineer',squadM==='Intern',squadM!=="Employee",squadM!=='Manager');{
+        else if(squadM==='Intern'){
                 console.log('You Have Chosen Intern');
                 iprompt()}
-            if(squadM!=='Engineer',squadM!=='Intern',squadM!=="Employee",squadM==='Manager');{
+        else if (squadM==='Manager'){
             
                 console.log('You have chosen Manager')
                     mprompt()}
             
         
     
-        if(squadM!=='Engineer',squadM!=='Intern',squadM==="Employee",squadM!=='Manager');{
+        else (squadM==='Employee');{
                     console.log("you hvae chosen Employee")
                     gprompt()
-                }}
+                }
                
 
             })}
