@@ -35,17 +35,23 @@ function Prompt(){
     inquirer.prompt(choiceprompt).then((answers)=>{
         var squadM=answers.choice
 
-        if(squadM==='Engineer'){
+        if(squadM==='Engineer',squadM!=='Intern',squadM!=="Employee",squadM!=='Manager'){
             console.log('you have chosen engineer');
-            eprompt()}else(squadM==='Intern');{
-                console.log('You Have Chosen Intern')
-                iprompt()}elseif(squadM==='Manager');{
-                    console.log('Youhave chosen Manager')
-                    mprompt()
-                }elseif(squadM==='Employee');{
+            eprompt()}
+        else{if(squadM!=='Engineer',squadM==='Intern',squadM!=="Employee",squadM!=='Manager');{
+                console.log('You Have Chosen Intern');
+                iprompt()}
+            if(squadM!=='Engineer',squadM!=='Intern',squadM!=="Employee",squadM==='Manager');{
+            
+                console.log('You have chosen Manager')
+                    mprompt()}
+            
+        
+    
+        if(squadM!=='Engineer',squadM!=='Intern',squadM==="Employee",squadM!=='Manager');{
                     console.log("you hvae chosen Employee")
                     gprompt()
-                }
+                }}
                
 
             })}
@@ -73,8 +79,26 @@ function mprompt(){
             },{type:"input",
                 message:"Office Number?",
                 name:'officeNumber'}
-    ],)
-            };
+    ],).then(function(data){
+        const answers=`
+        ## name 
+        ${data.name}
+        ## id 
+        ${data.id}
+        ##Email
+        ${data.email}
+        ##Role
+        ${data.role}
+        ##Office Number
+        ${data.officeNumber}`
+        
+        fs.writeFile('README.md',answers,function(err){
+            if(err){
+              console.log(error)
+            }
+            console.log("goodJob")
+    })})}
+            
 
   //intern prompt 
   function iprompt(){
@@ -95,8 +119,26 @@ function mprompt(){
             },{type:"input",
                 message:"School?",
                 name:'school'}
-    ],)
-            };
+    ],).then(function(data){
+        const answers=`
+        ## name 
+        ${data.name}
+        ## id 
+        ${data.id}
+        ##Email
+        ${data.email}
+        ##Role
+        ${data.role}
+        ##School
+        ${data.school}`
+        
+        fs.writeFile('README.md',answers,function(err){
+            if(err){
+              console.log(error)
+            }
+            console.log("goodJob")
+    })})}
+    
       
 //engineer prompt
     function eprompt(){
@@ -117,9 +159,25 @@ function mprompt(){
                 },{type:"input",
                     message:"Github?",
                     name:'github'}
-        ],)
-                };
-
+        ],).then(function(data){
+            const answers=`
+            ## name 
+            ${data.name}
+            ## id 
+            ${data.id}
+            ##Email
+            ${data.email}
+            ##Role
+            ${data.role}
+            ##GitHub
+            ${data.github}`
+            
+            fs.writeFile('README.md',answers,function(err){
+                if(err){
+                  console.log(error)
+                }
+                console.log("goodJob")
+        })})}
 //general debate 
 function gprompt(){
     return inquirer.prompt([
@@ -137,8 +195,24 @@ function gprompt(){
                 message:'what it you role',
                 name:'role',
             },
-    ],)
-            };
+    ],).then(function(data){
+        const answers=`
+        ## name 
+        ${data.name}
+        ## id 
+        ${data.id}
+        ##Email
+        ${data.email}
+        ##Role
+        ${data.role}
+        `
+        
+        fs.writeFile('README.md',answers,function(err){
+            if(err){
+              console.log(error)
+            }
+            console.log("goodJob")
+    })})}
 
     
 main()
